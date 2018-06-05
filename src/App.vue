@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <!-- <div id="app">
+    <router-view></router-view>
+  </div> -->
+  <v-app>
+    <component v-bind:is="layout"></component>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//components
+import Login from './components/authentication/Login.vue'
+import Registration from './components/authentication/Registration.vue'
+import CreateNewPatient from './components/dashboard/CreateNewPatient.vue'
 
-export default {
+//Layout
+import Simple from './components/layout/Simple.vue'
+import Default from './components/layout/default/Index.vue'
+
+//constants
+//import Constants from './constants.js'
+
+/* export default {
   name: 'app',
   components: {
-    HelloWorld
+    Login,
+    Registration,
   }
+} */
+export default {
+  computed: {
+    layout () {
+      return this.$store.getters.layout
+    }
+  },
+  components: {
+    'simple-layout': Simple,
+    'default-layout': Default,
+    'create-new-patient': CreateNewPatient
+  }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
