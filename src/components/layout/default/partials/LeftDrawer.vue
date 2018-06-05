@@ -51,6 +51,16 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-group>
+          <v-list-tile v-else-if="item.key === `logout`" :key="item.text" @click="logout">
+            <v-list-tile-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>                
+                  {{ item.text }}                 
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
           <v-list-tile v-else :key="item.text" @click="nothing">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -107,12 +117,15 @@ export default {
         { icon: 'chat_bubble', text: 'Send feedback', link:'' },
         { icon: 'help', text: 'Help', link:'' },
         { icon: 'phonelink', text: 'App downloads', link:'' },
-        { icon: 'keyboard', text: 'log out', link:'' }
+        { icon: 'keyboard', text: 'log out', link:'', key:'logout' }
       ]
    }),
    methods: {
        nothing() {
-         alert('sagar')
+         //alert('sagar')
+      },
+      logout() {
+        this.$auth.destroyToken()
       }
    }
 }

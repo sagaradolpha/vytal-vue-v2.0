@@ -9,8 +9,6 @@
 
 <script>
 //components
-import Login from './components/authentication/Login.vue'
-import Registration from './components/authentication/Registration.vue'
 import CreateNewPatient from './components/dashboard/CreateNewPatient.vue'
 
 //Layout
