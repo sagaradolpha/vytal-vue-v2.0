@@ -10,6 +10,7 @@
   "dependencies": {
     "vee-validate": "^2.0.9",
     "vue": "^2.5.16",
+    "vue-full-calendar": "^2.6.0",
     "vue-fullcalendar": "^1.0.9",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
