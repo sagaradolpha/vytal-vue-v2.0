@@ -3,6 +3,7 @@ import VeeValidate from 'vee-validate'
 import Vuetify from 'vuetify'
 import VueResource from 'vue-resource'
 import { store } from "./store"
+import FullCalendar from "vue-full-calendar";
 
 //components
 import App from './App.vue'
@@ -27,6 +28,7 @@ Vue.use(Vuetify, {
     error: "#b71c1c"
   }
 });
+Vue.use(FullCalendar);
 Vue.use(VueResource)
 //register auth package
 Vue.use(Auth)
