@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer
       :clipped="$vuetify.breakpoint.lgAndUp"
-      v-model="drawer"
+      v-model="leftDrawerProp"
       fixed
       app
     >
@@ -81,53 +81,56 @@
 </template>
 <script>
 export default {
-   name: 'left-drawer',
-   data: () => ({
-      drawer: null,
-       dialog: false,
-       items: [
-        { icon: 'contacts', text: 'Records', link: 'records' },
-        { icon: 'history', text: 'Manage Appointments', link:'manage-appointments' },
-        { icon: 'content_copy', text: 'Duplicates', link:'' },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          link:'',
-          model: true,
-          children: [
-            { icon: 'add', text: 'Create label' }
-          ]
-        },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          link:'',
-          model: false,
-          children: [
-            { text: 'Import' },
-            { text: 'Export' },
-            { text: 'Print' },
-            { text: 'Undo changes' },
-            { text: 'Other contacts' }
-          ]
-        },
-        { icon: 'settings', text: 'Settings', link:'' },
-        { icon: 'chat_bubble', text: 'Send feedback', link:'' },
-        { icon: 'help', text: 'Help', link:'' },
-        { icon: 'phonelink', text: 'App downloads', link:'' },
-        { icon: 'keyboard', text: 'log out', link:'', key:'logout' }
-      ]
-   }),
-   methods: {
-       nothing() {
-         //alert('sagar')
+  name: "left-drawer",
+  props: ["leftDrawerProp"],
+  data: () => ({
+    //drawer: null,
+    dialog: false,
+    items: [
+      { icon: "contacts", text: "Records", link: "records" },
+      {
+        icon: "history",
+        text: "Manage Appointments",
+        link: "manage-appointments"
       },
-      logout() {
-        this.$auth.destroyToken()
-      }
-   }
-}
+      { icon: "content_copy", text: "Duplicates", link: "" },
+      {
+        icon: "keyboard_arrow_up",
+        "icon-alt": "keyboard_arrow_down",
+        text: "Labels",
+        link: "",
+        model: true,
+        children: [{ icon: "add", text: "Create label" }]
+      },
+      {
+        icon: "keyboard_arrow_up",
+        "icon-alt": "keyboard_arrow_down",
+        text: "More",
+        link: "",
+        model: false,
+        children: [
+          { text: "Import" },
+          { text: "Export" },
+          { text: "Print" },
+          { text: "Undo changes" },
+          { text: "Other contacts" }
+        ]
+      },
+      { icon: "settings", text: "Settings", link: "" },
+      { icon: "chat_bubble", text: "Send feedback", link: "" },
+      { icon: "help", text: "Help", link: "" },
+      { icon: "phonelink", text: "App downloads", link: "" },
+      { icon: "keyboard", text: "log out", link: "", key: "logout" }
+    ]
+  }),
+  methods: {
+    nothing() {
+      //alert('sagar')
+    },
+    logout() {
+      this.$auth.destroyToken();
+    }
+  }
+};
 </script>
 

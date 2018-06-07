@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <left-drawer></left-drawer>
+    <left-drawer :leftDrawerProp="drawer"></left-drawer>
     <v-toolbar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       color="primary"
@@ -40,30 +40,38 @@
         <v-layout justify-center align-center>          
         </v-layout>     
       </v-container> -->
+      <v-container grid-list-md text-xs-center>
+      <v-layout row wrap> 
       <router-view></router-view>
+      </v-layout>
+      </v-container>  
     </v-content>
     <create-new-patient></create-new-patient>
   </v-app>
 </template>
 
 <script>
-  import LeftDrawer from "./partials/LeftDrawer.vue"
-  import CreateNewPatient from '../../dashboard/CreateNewPatient.vue'
-  
-  export default {
-    components: {
-      CreateNewPatient,
-      LeftDrawer
-    },
-    data: () => ({
+import LeftDrawer from "./partials/LeftDrawer.vue";
+import CreateNewPatient from "../../dashboard/CreateNewPatient.vue";
+
+export default {
+  components: {
+    CreateNewPatient,
+    LeftDrawer
+  },
+  data() {
+    return {
       drawer: null
-      
-    }),
-    methods: {
-      
-    },
-    props: {
-      source: String
-    }
+    };
+  },
+  methods: {},
+  props: {
+    source: String
   }
+};
 </script>
+<style>
+html {
+  overflow-y: hidden;
+}
+</style>
